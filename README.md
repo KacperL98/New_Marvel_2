@@ -32,7 +32,7 @@ Search for comic books by title
 fun getCharacterByTitle(title: String) {
         viewModelScope.launch {
             try {
-                delay(3000)
+                delay(2000)
                 resultsMutable.postValue(ViewState.Loading)
                 val response = useCases.getSearchAllComics(title)
                 if (response.isSuccessful && !response.body()?.data?.results.isNullOrEmpty() ) {
@@ -99,6 +99,11 @@ the code below reply to the display -> Success, Error, Loading and not found
         })
 ```
 
+### Gif
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/75754448/107709874-3f85f480-6cc6-11eb-9910-aa641947c541.gif)
+
+view was made with MotionLayout. The thumbnail disappears when you move it up. At the bottom there is a button that takes you to a specific page with a comic book
+
+
 
 
