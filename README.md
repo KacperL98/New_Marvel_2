@@ -15,27 +15,18 @@ The first view is responsible for displaying the comic list (thumbnail and name)
 from Picasso , I change http to https.
 
    ```Kotlin
-fun getCharacterByTitle(title: String) {
-        viewModelScope.launch {
-            try {
-                delay(3000)
-                resultsMutable.postValue(ViewState.Loading)
-                val response = useCases.getSearchAllComics(title)
-                if (response.isSuccessful && !response.body()?.data?.results.isNullOrEmpty() ) {
-                    resultsMutable.postValue(ViewState.Success(response.body()?.data?.results))
-                    }else{
-                    resultsMutable.postValue(ViewState.NotFound)
-                }
-            } catch (e: Exception) {
-                resultsMutable.postValue(ViewState.Error)
-            }
+    fun bind(result: Result, listener: ListComicsAdapter.ComicsListener?) {
+        with(binding) {
+            titleComics.text = result.title
+            val url =
+                "${result.thumbnail.path}.${result.thumbnail.extension}".replace("http", "https")
+            Picasso.get().load(url).into(thumbNailComic)
+            root.setOnClickListener { listener?.onClickComics(result) }
         }
     }
 ```
     
 Search for comic books by title
-
-
 
 ### SearchViewModel
 
@@ -59,6 +50,7 @@ fun getCharacterByTitle(title: String) {
 ```
    
    ### SearchListFragment
+   
     ```Kotlin
     binding.etQuery.addTextChangedListener {
             if (it.toString().isNotEmpty()) {
