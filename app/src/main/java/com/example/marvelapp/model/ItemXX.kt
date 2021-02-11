@@ -1,11 +1,11 @@
-package com.example.marvelapp.Model
+package com.example.marvelapp.model
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class ItemX(
+data class ItemXX(
     val name: String,
     val resourceURI: String,
-    val role: String
-) : Parcelable
+    val type: String
+): Parcelable

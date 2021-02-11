@@ -6,19 +6,22 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.marvelapp.repository.Repository
-import com.example.marvelapp.Model.Result
+import com.example.marvelapp.model.Result
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-
-class SearchViewModel @ViewModelInject constructor(
+import javax.inject.Inject
+@HiltViewModel
+class SearchViewModel @Inject constructor(
     private val useCases: Repository
 ) : ViewModel() {
     private val resultsMutable = MutableLiveData<ViewState>()
     val observeResults: LiveData<ViewState> = resultsMutable
+
     fun getCharacterByTitle(title: String) {
         viewModelScope.launch {
             try {
-                delay(1000)
+                delay(3000)
                 resultsMutable.postValue(ViewState.Loading)
                 val response = useCases.getSearchAllComics(title)
                 if (response.isSuccessful && !response.body()?.data?.results.isNullOrEmpty() ) {

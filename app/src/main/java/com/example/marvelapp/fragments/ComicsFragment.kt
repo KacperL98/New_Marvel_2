@@ -1,5 +1,4 @@
-package com.example.marvelapp.comics
-
+package com.example.marvelapp.fragments
 import android.os.Bundle
 import android.view.*
 import androidx.core.os.bundleOf
@@ -7,7 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import com.example.marvelapp.Model.Result
+import com.example.marvelapp.model.Result
 import com.example.marvelapp.R
 import com.example.marvelapp.adapter.ListComicsAdapter
 import com.example.marvelapp.databinding.FragmentListComicsBinding

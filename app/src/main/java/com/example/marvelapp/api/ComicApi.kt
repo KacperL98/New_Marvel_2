@@ -1,6 +1,6 @@
 package com.example.marvelapp.api
 
-import com.example.marvelapp.Model.MarvelModelData
+import com.example.marvelapp.model.MarvelModelData
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

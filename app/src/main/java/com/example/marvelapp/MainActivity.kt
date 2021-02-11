@@ -29,9 +29,8 @@ class MainActivity : AppCompatActivity() {
         ).build()
 
         setupActionBarWithNavController(navController, appBarConfiguration)
-        binding.apply {
-            bottomNavigationView.setupWithNavController(navController)
-        }
+        binding.bottomNavigationView.setupWithNavController(navController)
+
     }
 
     override fun onSupportNavigateUp(): Boolean {

@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
-import com.example.marvelapp.Model.Result
+import com.example.marvelapp.model.Result
 import com.example.marvelapp.databinding.ItemComicsBinding
 import com.example.marvelapp.viewholder.ComicsViewHolder
 
@@ -23,13 +23,10 @@ class ListComicsAdapter(private val listener: ComicsListener) :
             holder.bind(currentItem, listener)
         }
     }
-
     interface ComicsListener {
         fun onClickComics(result: Result?)
     }
-
 }
-
 private val DiffCallback: DiffUtil.ItemCallback<Result> =
 
     object : DiffUtil.ItemCallback<Result>() {

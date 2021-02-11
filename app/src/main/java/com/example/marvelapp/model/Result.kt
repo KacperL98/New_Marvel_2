@@ -1,4 +1,4 @@
-package com.example.marvelapp.Model
+package com.example.marvelapp.model
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
@@ -33,4 +33,4 @@ data class Result(
     val urls: List<Url>,
     val variantDescription: String,
     val variants: List<Variant>
-) : Serializable, Parcelable
+) : Parcelable

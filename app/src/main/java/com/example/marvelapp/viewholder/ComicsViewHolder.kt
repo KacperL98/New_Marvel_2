@@ -3,7 +3,7 @@ package com.example.marvelapp.viewholder
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.marvelapp.Model.Result
+import com.example.marvelapp.model.Result
 import com.example.marvelapp.R
 import com.example.marvelapp.adapter.ListComicsAdapter
 import com.example.marvelapp.databinding.ItemComicsBinding

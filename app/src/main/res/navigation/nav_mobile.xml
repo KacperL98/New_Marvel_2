@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/nav_comics"
-        android:name="com.example.marvelapp.comics.ComicsFragment"
+        android:name="com.example.marvelapp.fragments.ComicsFragment"
         android:label="Marvel Comics"
         tools:layout="@layout/fragment_list_comics">
 
@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/nav_search"
-        android:name="com.example.marvelapp.search.SearchListFragment"
+        android:name="com.example.marvelapp.fragments.SearchListFragment"
         android:label="Search Comics"
         tools:layout="@layout/fragment__list_search">
         <action
@@ -26,16 +26,16 @@
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"
-        android:name="com.example.marvelapp.comics.DetailsComicsFragment"
+        android:name="com.example.marvelapp.fragments.DetailsComicsFragment"
         android:label="Details"
         tools:layout="@layout/detail_comics_fragment">
 
         <argument
             android:name="result"
-            app:argType="com.example.marvelapp.Model.Result" />
+            app:argType="com.example.marvelapp.model.Result" />
         <argument
             android:name="search"
-            app:argType="com.example.marvelapp.Model.Result" />
+            app:argType="com.example.marvelapp.model.Result" />
     </fragment>
 
 
