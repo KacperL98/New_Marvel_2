@@ -49,7 +49,7 @@ fun getCharacterByTitle(title: String) {
     }
 ```
    
-   ### SearchListFragment
+ ### SearchListFragment
    
    ```Kotlin
         binding.etQuery.addTextChangedListener {
