@@ -25,46 +25,4 @@ from Picasso , I change http to https.
         }
     }
 ```
-There is a search engine in the next view
-
-Sealed class -> Loading, Success, Error, Not Found 
-
-    ```Kotlin
-    sealed class ViewState {
-        object Loading : ViewState()
-        data class Success(val results: List<Result>?) : ViewState()
-        object Error : ViewState()
-        object NotFound : ViewState()
-    }
-```
-
-    ```Kotlin
-     viewModel.observeResults.observe(viewLifecycleOwner, Observer {
-
-            when (it) {
-
-                Loading -> binding.progressbar.visibility = View.VISIBLE
-                is Success -> {
-                    binding.listOfHeroesRV.visibility = View.VISIBLE
-
-                    binding.notFound.visibility = View.GONE
-                    binding.progressbar.visibility = View.GONE
-                    adapter.submitList(it.results)
-                }
-                Error -> {
-                    binding.progressbar.visibility = View.GONE
-                    binding.notFound.visibility = View.GONE
-
-                    Timber.d("api")
-                }
-                NotFound -> {
-                    binding.listOfHeroesRV.visibility = View.GONE
-                    binding.progressbar.visibility = View.GONE
-                    binding.notFound.visibility = View.VISIBLE
-                    Timber.d("not found")
-                }
-            }
-        })
-
-```
 
