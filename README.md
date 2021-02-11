@@ -29,15 +29,11 @@ from Picasso , I change http to https.
 Search for comic books by title
 
 
-```Kotlin
-viewStatus.setBackgroundColor(ContextCompat.getColor(
-context, RickAndMortyStatus.getStatusColor(data.status)
-```
 
 ### SearchViewModel
 
-    ```Kotlin
-    fun getCharacterByTitle(title: String) {
+   ```Kotlin
+fun getCharacterByTitle(title: String) {
         viewModelScope.launch {
             try {
                 delay(3000)
@@ -53,8 +49,8 @@ context, RickAndMortyStatus.getStatusColor(data.status)
             }
         }
     }
-    ```
-    
+```
+   
    ### SearchListFragment
     ```Kotlin
     binding.etQuery.addTextChangedListener {
