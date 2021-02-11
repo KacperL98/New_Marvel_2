@@ -26,4 +26,33 @@ from Picasso , I change http to https.
         }
     }
     
-cssvfebve
+Search for comic books by title
+### SearchViewModel
+
+    ```Kotlin
+    fun getCharacterByTitle(title: String) {
+        viewModelScope.launch {
+            try {
+                delay(3000)
+                resultsMutable.postValue(ViewState.Loading)
+                val response = useCases.getSearchAllComics(title)
+                if (response.isSuccessful && !response.body()?.data?.results.isNullOrEmpty() ) {
+                    resultsMutable.postValue(ViewState.Success(response.body()?.data?.results))
+                    }else{
+                    resultsMutable.postValue(ViewState.NotFound)
+                }
+            } catch (e: Exception) {
+                resultsMutable.postValue(ViewState.Error)
+            }
+        }
+    }
+    ```
+   ### SearchListFragment
+    
+    binding.etQuery.addTextChangedListener {
+            if (it.toString().isNotEmpty()) {
+                viewModel.getCharacterByTitle(it.toString())
+            }
+        }
+    ```
+
