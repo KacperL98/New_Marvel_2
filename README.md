@@ -14,8 +14,7 @@ The project was created using [Marvel API](https://developer.marvel.com/).
 The first view is responsible for displaying the comic list (thumbnail and name). To correctly download photos
 from Picasso , I change http to https.
 
-    ```Kotlin
-    
+    ```   
     fun bind(result: Result, listener: ListComicsAdapter.ComicsListener?) {
         with(binding) {
             titleComics.text = result.title
@@ -29,7 +28,7 @@ from Picasso , I change http to https.
 Search for comic books by title
 ### SearchViewModel
 
-    ```Kotlin
+    ```
     fun getCharacterByTitle(title: String) {
         viewModelScope.launch {
             try {
@@ -46,13 +45,13 @@ Search for comic books by title
             }
         }
     }
-    ```
-   ### SearchListFragment
     
+   ### SearchListFragment
+    ```
     binding.etQuery.addTextChangedListener {
             if (it.toString().isNotEmpty()) {
                 viewModel.getCharacterByTitle(it.toString())
             }
         }
-    ```
+   
 
