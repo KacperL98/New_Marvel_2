@@ -1,9 +1,6 @@
 # MarvelApp
 
 ### Hello👋
-
-The Project was created using
-
 The project was created using [Marvel API](https://developer.marvel.com/). 
 
 ![dccefli-b4f37aab-2607-47d0-af09-d9144297fd8f](https://user-images.githubusercontent.com/75754448/107712168-3cd8ce80-6cc9-11eb-9187-10eab15746e5.png)
