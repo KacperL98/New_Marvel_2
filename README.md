@@ -59,3 +59,47 @@ fun getCharacterByTitle(title: String) {
         }
 ```
 
+![148847206_1139137353172647_1840294727504109803_n](https://user-images.githubusercontent.com/75754448/107707675-883bae80-6cc2-11eb-9e30-5b319dd8ed6b.jpg)
+
+
+if you enter an incorrect title, "Comic not found/valid name not entered" will be displayed after 2 seconds. A correct name will display a comic list.
+the code below reply to the display -> Success, Error, Loading and not found
+
+   ```Kotlin
+    sealed class ViewState {
+        object Loading : ViewState()
+        data class Success(val results: List<Result>?) : ViewState()
+        object Error : ViewState()
+        object NotFound : ViewState()
+    }
+```
+
+   ```Kotlin
+        viewModel.observeResults.observe(viewLifecycleOwner, Observer {
+
+            when (it) {
+
+                Loading -> binding.progressbar.visibility = View.VISIBLE
+                is Success -> {
+                    binding.listOfHeroesRV.visibility = View.VISIBLE
+
+                    binding.notFound.visibility = View.GONE
+                    binding.progressbar.visibility = View.GONE
+                    adapter.submitList(it.results)
+                }
+                Error -> {
+                    binding.progressbar.visibility = View.GONE
+                    binding.notFound.visibility = View.GONE
+
+                    Timber.d("api")
+                }
+                NotFound -> {
+                    binding.listOfHeroesRV.visibility = View.GONE
+                    binding.progressbar.visibility = View.GONE
+                    binding.notFound.visibility = View.VISIBLE
+                    Timber.d("not found")
+                }
+            }
+        })
+```
+
