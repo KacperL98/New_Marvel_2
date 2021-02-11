@@ -21,7 +21,7 @@ class SearchViewModel @Inject constructor(
     fun getCharacterByTitle(title: String) {
         viewModelScope.launch {
             try {
-                delay(3000)
+                delay(2000)
                 resultsMutable.postValue(ViewState.Loading)
                 val response = useCases.getSearchAllComics(title)
                 if (response.isSuccessful && !response.body()?.data?.results.isNullOrEmpty() ) {
