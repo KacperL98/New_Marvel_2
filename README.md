@@ -28,8 +28,6 @@ from Picasso , I change http to https.
     
 Search for comic books by title
 
-### SearchViewModel
-
    ```Kotlin
 fun getCharacterByTitle(title: String) {
         viewModelScope.launch {
@@ -48,9 +46,7 @@ fun getCharacterByTitle(title: String) {
         }
     }
 ```
-   
- ### SearchListFragment
-   
+      
    ```Kotlin
         binding.etQuery.addTextChangedListener {
             if (it.toString().isNotEmpty()) {
