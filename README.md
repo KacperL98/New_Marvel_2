@@ -1,6 +1,7 @@
 # MarvelApp
 
-![gleasonmarvel_promo](https://user-images.githubusercontent.com/75754448/107693724-cc24b880-6cae-11eb-98ff-4d0a95e39f6e.jpg)
+
+![dccefli-b4f37aab-2607-47d0-af09-d9144297fd8f](https://user-images.githubusercontent.com/75754448/107712168-3cd8ce80-6cc9-11eb-9187-10eab15746e5.png)
 
 ### Hello👋
 
