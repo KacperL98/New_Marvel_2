@@ -5,7 +5,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.marvelapp.Model.Item
 import com.example.marvelapp.repository.Repository
 import com.example.marvelapp.Model.Result
 import kotlinx.coroutines.launch

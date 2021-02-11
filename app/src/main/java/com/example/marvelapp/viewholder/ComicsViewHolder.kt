@@ -2,17 +2,11 @@ package com.example.marvelapp.viewholder
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.Observer
-import androidx.lifecycle.observe
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.marvelapp.Model.Result
-import com.example.marvelapp.Model.TextObject
 import com.example.marvelapp.R
 import com.example.marvelapp.adapter.ListComicsAdapter
 import com.example.marvelapp.databinding.ItemComicsBinding
-import com.example.marvelapp.viewmodel.ComicsViewModel
 import com.squareup.picasso.Picasso
 
 class ComicsViewHolder(private val binding: ItemComicsBinding) :
