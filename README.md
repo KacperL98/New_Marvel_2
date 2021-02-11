@@ -99,3 +99,6 @@ the code below reply to the display -> Success, Error, Loading and not found
         })
 ```
 
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/75754448/107709874-3f85f480-6cc6-11eb-9910-aa641947c541.gif)
+
+
