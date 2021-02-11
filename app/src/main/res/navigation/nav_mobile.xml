@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_grapq"
+    app:startDestination="@id/nav_comics">
+
+    <fragment
+        android:id="@+id/nav_comics"
+        android:name="com.example.marvelapp.comics.ComicsFragment"
+        android:label="Marvel Comics"
+        tools:layout="@layout/fragment_list_comics">
+
+        <action
+            android:id="@+id/action_nav_comics_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_search"
+        android:name="com.example.marvelapp.search.SearchListFragment"
+        android:label="Search Comics"
+        tools:layout="@layout/fragment__list_search">
+        <action
+            android:id="@+id/action_nav_search_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.example.marvelapp.comics.DetailsComicsFragment"
+        android:label="Details"
+        tools:layout="@layout/detail_comics_fragment">
+
+        <argument
+            android:name="result"
+            app:argType="com.example.marvelapp.Model.Result" />
+        <argument
+            android:name="search"
+            app:argType="com.example.marvelapp.Model.Result" />
+    </fragment>
+
+
+</navigation>
