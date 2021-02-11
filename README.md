@@ -15,6 +15,7 @@ The first view is responsible for displaying the comic list (thumbnail and name)
 from Picasso , I change http to https.
 
     ```Kotlin
+    
     fun bind(result: Result, listener: ListComicsAdapter.ComicsListener?) {
         with(binding) {
             titleComics.text = result.title
@@ -24,5 +25,5 @@ from Picasso , I change http to https.
             root.setOnClickListener { listener?.onClickComics(result) }
         }
     }
-```
-
+    
+cssvfebve
