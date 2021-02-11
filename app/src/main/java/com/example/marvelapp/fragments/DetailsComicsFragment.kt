@@ -42,7 +42,8 @@ class DetailsComicsFragment : Fragment() {
         comicBook.text = result?.title
 
         val url = "${result?.thumbnail?.path}.${result?.thumbnail?.extension}".replace(
-            "http", "https")
+            "http", "https"
+        )
         Picasso.get().load(url).into(background_imageView_comic)
         Timber.d("picture ${result?.thumbnail?.path}.${result?.thumbnail?.extension}")
 
