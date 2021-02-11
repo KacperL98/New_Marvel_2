@@ -27,6 +27,13 @@ from Picasso , I change http to https.
     ```
     
 Search for comic books by title
+
+
+```Kotlin
+viewStatus.setBackgroundColor(ContextCompat.getColor(
+context, RickAndMortyStatus.getStatusColor(data.status)
+```
+
 ### SearchViewModel
 
     ```Kotlin
