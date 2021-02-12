@@ -160,6 +160,7 @@ Adding in ComicsViewHolder
     root.setOnClickListener { listener?.onClickComics(result) }
 ```
 Third step ->
+
 Before that, add "@Parcelize" and "Parcelable" to each data class to set an argument in the navigation fragment
 
 Adding in ComicsFragment
