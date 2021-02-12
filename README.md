@@ -125,4 +125,55 @@ forEach are used to perform action on each and very elements of list
         binding.descriptionTxt.text = description
 ```
 
+### Step by step details fragment
+
+First step ->
+Adding in ListComicsAdapter
+
+   ```Kotlin
+    interface ComicsListener {
+        fun onClickComics(result: Result?)
+    }
+```
+[...]
+   ```Kotlin
+class ListComicsAdapter(private val listener: ComicsListener) :
+    ListAdapter<Result, ComicsViewHolder>(DiffCallback) {...}
+```
+[...]
+   ```Kotlin
+  override fun onBindViewHolder(holder: ComicsViewHolder, position: Int) {
+        val currentItem = getItem(position)
+        if (currentItem != null) {
+            holder.bind(currentItem, listener)
+        }
+    }
+```
+Second step ->
+Adding in ComicsViewHolder
+
+   ```Kotlin
+    fun bind(result: Result, listener: ListComicsAdapter.ComicsListener?) {
+    .
+    .
+    .
+    root.setOnClickListener { listener?.onClickComics(result) }
+```
+Third step ->
+Before that, add "@Parcelize" and "Parcelable" to each data class to set an argument in the navigation fragment
+
+Adding in ComicsFragment
+
+   ```Kotlin
+    private val adapter =
+        ListComicsAdapter(object :
+            ListComicsAdapter.ComicsListener {
+            override fun onClickComics(result: Result?) {
+                findNavController().navigate(
+                    R.id.action_nav_comics_to_detailsFragment, bundleOf("person_data" to result))
+            }
+        })
+```
+
+
 
