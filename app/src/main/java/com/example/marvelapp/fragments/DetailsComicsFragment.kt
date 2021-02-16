@@ -63,6 +63,8 @@ class DetailsComicsFragment : Fragment() {
             intent.data = Uri.parse(website?.url)
             startActivity(intent)
         }
+
+        
     }
 
 }

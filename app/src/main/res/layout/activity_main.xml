@@ -21,9 +21,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:defaultNavHost="true"
+        app:layout_constraintBottom_toBottomOf="@+id/bottomNavigationView"
         app:navGraph="@navigation/nav_mobile"
-        tools:layout_editor_absoluteX="190dp"
-        tools:layout_editor_absoluteY="312dp" />
+        tools:layout_editor_absoluteX="190dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
