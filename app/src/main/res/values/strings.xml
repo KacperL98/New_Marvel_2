@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Marvel App</string>
     <string name="search">Buscar</string>
+    <string name="creators">Creators</string>
+    <string name="find_out_more">Find out more</string>
+    <string name="search_list">Search</string>
+    <string name="not_found">Comic not found/valid name not entered</string>
 
 </resources>

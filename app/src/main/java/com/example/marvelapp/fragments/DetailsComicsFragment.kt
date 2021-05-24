@@ -8,9 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.marvelapp.model.Result
-import com.example.marvelapp.R
 import com.example.marvelapp.databinding.DetailComicsFragmentBinding
-import com.example.marvelapp.databinding.FragmentListComicsBinding
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.squareup.picasso.Picasso
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.detail_comics_fragment.*
@@ -36,6 +35,10 @@ class DetailsComicsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        BottomSheetBehavior.from(sheet_shape).apply {
+            peekHeight=600
+            this.state = BottomSheetBehavior.STATE_COLLAPSED
+        }
         result = arguments?.getParcelable("person_data") as Result?
         binding = DetailComicsFragmentBinding.bind(view)
 
@@ -48,7 +51,7 @@ class DetailsComicsFragment : Fragment() {
         Timber.d("picture ${result?.thumbnail?.path}.${result?.thumbnail?.extension}")
 
         result?.creators?.items?.forEach {
-            creators += "${it.name}\n"
+            creators += "${it.name}, "
         }
         binding.comicsBookAuthors.text = creators
 
@@ -63,8 +66,5 @@ class DetailsComicsFragment : Fragment() {
             intent.data = Uri.parse(website?.url)
             startActivity(intent)
         }
-
-        
     }
-
 }

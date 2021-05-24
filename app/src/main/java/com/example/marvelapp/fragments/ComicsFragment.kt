@@ -1,4 +1,5 @@
 package com.example.marvelapp.fragments
+
 import android.os.Bundle
 import android.view.*
 import androidx.core.os.bundleOf
@@ -24,7 +25,8 @@ class ComicsFragment : Fragment() {
             ListComicsAdapter.ComicsListener {
             override fun onClickComics(result: Result?) {
                 findNavController().navigate(
-                    R.id.action_nav_comics_to_detailsFragment, bundleOf("person_data" to result))
+                    R.id.action_nav_comics_to_detailsFragment, bundleOf("person_data" to result)
+                )
             }
         })
 
@@ -46,7 +48,6 @@ class ComicsFragment : Fragment() {
                 adapter.submitList(it)
         })
     }
-
 }
 
 

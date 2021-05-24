@@ -12,8 +12,8 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.marvelapp.model.Result
 import com.example.marvelapp.R
-import com.example.marvelapp.databinding.FragmentListSearchBinding
 import com.example.marvelapp.adapter.ListSearchAdapter
+import com.example.marvelapp.databinding.FragmentListSearchBinding
 import com.example.marvelapp.viewmodel.SearchViewModel
 import com.example.marvelapp.viewmodel.SearchViewModel.ViewState.*
 import dagger.hilt.android.AndroidEntryPoint
@@ -32,6 +32,7 @@ class SearchListFragment : Fragment() {
             )
         }
     })
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -48,37 +49,32 @@ class SearchListFragment : Fragment() {
 
             when (it) {
 
-                Loading -> binding.progressbar.visibility = View.VISIBLE
+                Loading -> binding.progressBar.visibility = View.VISIBLE
                 is Success -> {
                     binding.listOfHeroesRV.visibility = View.VISIBLE
 
                     binding.notFound.visibility = View.GONE
-                    binding.progressbar.visibility = View.GONE
+                    binding.progressBar.visibility = View.GONE
                     adapter.submitList(it.results)
                 }
                 Error -> {
-                    binding.progressbar.visibility = View.GONE
+                    binding.progressBar.visibility = View.GONE
                     binding.notFound.visibility = View.GONE
 
                     Timber.d("api")
                 }
                 NotFound -> {
                     binding.listOfHeroesRV.visibility = View.GONE
-                    binding.progressbar.visibility = View.GONE
+                    binding.progressBar.visibility = View.GONE
                     binding.notFound.visibility = View.VISIBLE
                     Timber.d("not found")
                 }
             }
         })
-
         binding.etQuery.addTextChangedListener {
             if (it.toString().isNotEmpty()) {
                 viewModel.getCharacterByTitle(it.toString())
             }
         }
     }
-
-
 }
-
-

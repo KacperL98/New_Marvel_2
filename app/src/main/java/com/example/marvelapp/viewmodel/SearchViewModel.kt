@@ -1,6 +1,5 @@
 package com.example.marvelapp.viewmodel
 
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -11,6 +10,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+
 @HiltViewModel
 class SearchViewModel @Inject constructor(
     private val useCases: Repository
@@ -24,9 +24,9 @@ class SearchViewModel @Inject constructor(
                 delay(2000)
                 resultsMutable.postValue(ViewState.Loading)
                 val response = useCases.getSearchAllComics(title)
-                if (response.isSuccessful && !response.body()?.data?.results.isNullOrEmpty() ) {
+                if (response.isSuccessful && !response.body()?.data?.results.isNullOrEmpty()) {
                     resultsMutable.postValue(ViewState.Success(response.body()?.data?.results))
-                    }else{
+                } else {
                     resultsMutable.postValue(ViewState.NotFound)
                 }
             } catch (e: Exception) {
@@ -34,6 +34,7 @@ class SearchViewModel @Inject constructor(
             }
         }
     }
+
     sealed class ViewState {
         object Loading : ViewState()
         data class Success(val results: List<Result>?) : ViewState()

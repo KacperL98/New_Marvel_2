@@ -3,10 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/shade"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/shade_background">
+
     <FrameLayout
-        android:id="@+id/frameLayout3"
+        android:id="@+id/frameLayout_search_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -21,26 +22,19 @@
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:endIconMode="clear_text"
+            app:startIconDrawable="@drawable/ic_search">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_query"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Search"
+                android:hint="@string/search_list"
+                android:imeOptions="actionDone"
                 android:inputType="text"
                 android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
-
-        <ImageView
-            android:id="@+id/btn_search"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_gravity="right"
-            android:src="@drawable/ic_search"
-            tools:ignore="RtlHardcoded" />
-
     </FrameLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -48,35 +42,35 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/item_search"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout3" />
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout_search_view"
+        tools:listitem="@layout/item_search" />
 
     <ProgressBar
-        android:id="@+id/progressbar"
+        android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout3" />
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout_search_view" />
 
 
     <TextView
-        android:id="@+id/notFound"
+        android:id="@+id/not_found"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="24sp"
         android:gravity="center"
-        android:text="Comic not found/valid name not entered"
+        android:textSize="24sp"
         android:visibility="gone"
-        tools:visibility="visible"
+        android:text="@string/not_found"
         app:layout_constraintBottom_toBottomOf="@+id/listOfHeroesRV"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/frameLayout3" />
+        app:layout_constraintTop_toTopOf="@+id/frameLayout_search_view"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

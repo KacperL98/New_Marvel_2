@@ -23,10 +23,12 @@ class ListComicsAdapter(private val listener: ComicsListener) :
             holder.bind(currentItem, listener)
         }
     }
+
     interface ComicsListener {
         fun onClickComics(result: Result?)
     }
 }
+
 private val DiffCallback: DiffUtil.ItemCallback<Result> =
 
     object : DiffUtil.ItemCallback<Result>() {
