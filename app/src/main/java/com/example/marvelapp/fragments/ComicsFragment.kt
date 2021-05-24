@@ -18,11 +18,13 @@ import dagger.hilt.android.AndroidEntryPoint
 class ComicsFragment : Fragment() {
 
     private val viewModel: ComicsViewModel by viewModels()
-    private lateinit var binding: FragmentListComicsBinding
+    private var _binding: FragmentListComicsBinding? = null
+    private val binding get() = _binding!!
 
     private val adapter =
         ListComicsAdapter(object :
             ListComicsAdapter.ComicsListener {
+
             override fun onClickComics(result: Result?) {
                 findNavController().navigate(
                     R.id.action_nav_comics_to_detailsFragment, bundleOf("person_data" to result)
@@ -35,7 +37,7 @@ class ComicsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentListComicsBinding.inflate(inflater, container, false)
+        _binding =FragmentListComicsBinding.inflate(inflater, container, false)
         return binding.root
     }
 

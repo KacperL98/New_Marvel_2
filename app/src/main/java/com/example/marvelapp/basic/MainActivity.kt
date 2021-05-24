@@ -1,4 +1,4 @@
-package com.example.marvelapp
+package com.example.marvelapp.basic
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +8,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.marvelapp.R
 import com.example.marvelapp.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -15,9 +16,12 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
 
+    private var _binding: ActivityMainBinding? = null
+    private val binding get() = _binding!!
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = ActivityMainBinding.inflate(layoutInflater)
+        _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val navHostFragment =

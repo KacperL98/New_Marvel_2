@@ -18,7 +18,9 @@ import timber.log.Timber
 @AndroidEntryPoint
 class DetailsComicsFragment : Fragment() {
 
-    private lateinit var binding: DetailComicsFragmentBinding
+    private var _binding: DetailComicsFragmentBinding? = null
+    private val binding get() = _binding!!
+
     private var result: Result? = null
     private var creators: String = ""
     private var description: String = ""
@@ -28,7 +30,7 @@ class DetailsComicsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = DetailComicsFragmentBinding.inflate(inflater, container, false)
+        _binding = DetailComicsFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -40,7 +42,7 @@ class DetailsComicsFragment : Fragment() {
             this.state = BottomSheetBehavior.STATE_COLLAPSED
         }
         result = arguments?.getParcelable("person_data") as Result?
-        binding = DetailComicsFragmentBinding.bind(view)
+        _binding = DetailComicsFragmentBinding.bind(view)
 
         comicBook.text = result?.title
 

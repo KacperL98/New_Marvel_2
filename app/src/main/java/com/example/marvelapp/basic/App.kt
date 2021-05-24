@@ -1,4 +1,4 @@
-package com.example.marvelapp
+package com.example.marvelapp.basic
 
 import android.app.Application
 import android.content.Context
