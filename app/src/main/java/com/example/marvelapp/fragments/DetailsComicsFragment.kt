@@ -13,8 +13,6 @@ import com.example.marvelapp.databinding.DetailComicsFragmentBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.squareup.picasso.Picasso
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.detail_comics_fragment.*
-import timber.log.Timber
 
 @AndroidEntryPoint
 class DetailsComicsFragment : Fragment() {
@@ -37,24 +35,19 @@ class DetailsComicsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         initView()
-        BottomSheetBehavior.from(sheet_shape).apply {
-            peekHeight = 600
-            this.state = BottomSheetBehavior.STATE_COLLAPSED
-        }
+        extendableView()
     }
 
     private fun initView() {
         result = arguments?.getParcelable(Const.RESULT_COMIC) as Result?
 
-        comicBook.text = result?.title
+        binding.comicBook.text = result?.title
 
         val url = "${result?.thumbnail?.path}.${result?.thumbnail?.extension}".replace(
             "http", "https"
         )
-        Picasso.get().load(url).into(background_imageView_comic)
-        Timber.d("picture ${result?.thumbnail?.path}.${result?.thumbnail?.extension}")
+        Picasso.get().load(url).into(binding.backgroundImageViewComic)
 
         result?.creators?.items?.forEach {
             creators += "${it.name}, "
@@ -71,6 +64,13 @@ class DetailsComicsFragment : Fragment() {
             val intent = Intent(Intent.ACTION_VIEW)
             intent.data = Uri.parse(website?.url)
             startActivity(intent)
+        }
+    }
+
+    private fun extendableView() {
+        BottomSheetBehavior.from(binding.sheetShape).apply {
+            peekHeight = 600
+            this.state = BottomSheetBehavior.STATE_COLLAPSED
         }
     }
 }

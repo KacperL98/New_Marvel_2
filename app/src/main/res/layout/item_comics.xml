@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="8dp"
     app:cardElevation="8dp"
-    android:layout_margin="10dp">
+    android:layout_margin="15dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cardVIew"
@@ -14,9 +14,10 @@
         android:layout_height="wrap_content">
         <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/thumb_nail_comic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintWidth_percent=".3"
+            android:layout_width="124dp"
+            android:layout_height="220dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintWidth_percent="0.3"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -29,10 +30,11 @@
             android:id="@+id/title_comics"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:textStyle="bold"
             android:layout_margin="10dp"
             android:fontFamily="sans-serif"
             tools:text="Title"
-            android:textColor="#212121"
+            android:textColor="@color/black_title"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/thumb_nail_comic"

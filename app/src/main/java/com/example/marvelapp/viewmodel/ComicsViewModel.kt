@@ -13,6 +13,7 @@ import javax.inject.Inject
 @HiltViewModel
 class ComicsViewModel @Inject constructor(
     private val useCases: ComicsRepository
+
 ) : ViewModel() {
 
     private val resultsMutable = MutableLiveData<List<Result>>()

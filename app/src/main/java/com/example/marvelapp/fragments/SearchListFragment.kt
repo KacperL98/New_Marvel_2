@@ -21,6 +21,7 @@ import com.example.marvelapp.extension.show
 import com.example.marvelapp.viewmodel.SearchViewModel
 import com.example.marvelapp.viewmodel.SearchViewModel.ViewState.*
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.delay
 import timber.log.Timber
 
 @AndroidEntryPoint
@@ -51,37 +52,9 @@ class SearchListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         closeKeyboardAfterScroll()
-
+        searchByTitle()
+        searchResults()
         binding.listOfHeroesRV.adapter = adapter
-        viewModel.observeResults.observe(viewLifecycleOwner, Observer {
-
-            when (it) {
-                Loading -> binding.progressBar.show()
-                is Success -> {
-                    binding.listOfHeroesRV.show()
-                    binding.notFound.gone()
-                    binding.progressBar.gone()
-                    adapter.submitList(it.results)
-                }
-                Error -> {
-                    binding.progressBar.gone()
-                    binding.notFound.gone()
-                    Timber.d("api")
-                }
-                NotFound -> {
-                    binding.listOfHeroesRV.gone()
-                    binding.progressBar.gone()
-                    binding.notFound.show()
-                    Timber.d("not found")
-                }
-            }
-        })
-
-        binding.etQuery.addTextChangedListener {
-            if (it.toString().isNotEmpty()) {
-                viewModel.getCharacterByTitle(it.toString())
-            }
-        }
     }
 
     private fun closeKeyboardAfterScroll() {
@@ -91,6 +64,39 @@ class SearchListFragment : Fragment() {
                     hideKeyboard()
                 }
                 super.onScrolled(recyclerView, dx, dy)
+            }
+        })
+    }
+
+    private fun searchByTitle() {
+        binding.etQuery.addTextChangedListener {
+            if (it.toString().isNotEmpty()) {
+                viewModel.getCharacterByTitle(it.toString())
+            }
+        }
+    }
+
+    private fun searchResults() {
+        viewModel.observeResults.observe(viewLifecycleOwner, Observer {
+            when (it) {
+
+                Loading -> binding.progressBar.show()
+                is Success -> {
+                    binding.listOfHeroesRV.show()
+                    binding.notFound.gone()
+                    binding.progressBar.gone()
+                    adapter.submitList(it.results)
+                }
+                Error -> {
+
+                    binding.progressBar.gone()
+                    binding.notFound.gone()
+                }
+                NotFound -> {
+                    binding.listOfHeroesRV.gone()
+                    binding.progressBar.gone()
+                    binding.notFound.show()
+                }
             }
         })
     }

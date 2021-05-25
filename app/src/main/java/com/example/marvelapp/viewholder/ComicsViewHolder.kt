@@ -25,6 +25,7 @@ class ComicsViewHolder(private val binding: ItemComicsBinding) :
                 description += "${it.text}\n"
             }
             binding.descriptionComicsText.text = description
+
             val url =
                 "${result.thumbnail.path}.${result.thumbnail.extension}".replace("http", "https")
             Picasso.get().load(url).into(thumbNailComic)

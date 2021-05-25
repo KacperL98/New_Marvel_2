@@ -42,9 +42,10 @@ class ComicsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.listOfHeroesRV.adapter = adapter
-
+        setObservers()
+    }
+    private fun setObservers () {
         viewModel.observeResults.observe(viewLifecycleOwner, Observer {
-            if (it != null)
                 adapter.submitList(it)
         })
     }
