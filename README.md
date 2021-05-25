@@ -3,7 +3,7 @@
 ### Hello👋
 The project was created using [Marvel API](https://developer.marvel.com/). 
 
-![dccefli-b4f37aab-2607-47d0-af09-d9144297fd8f](https://user-images.githubusercontent.com/75754448/107712168-3cd8ce80-6cc9-11eb-9187-10eab15746e5.png)
+![marvel-studios-1420x670](https://user-images.githubusercontent.com/75734211/119407049-f5a8a380-bce3-11eb-9400-dada8041d744.jpg)
 
 ### Views
 ![149293209_121368806556552_2869867575346425538_n](https://user-images.githubusercontent.com/75754448/107694803-13f80f80-6cb0-11eb-9d7e-3518ecfb829a.jpg)
