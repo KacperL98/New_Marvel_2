@@ -11,11 +11,13 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.example.marvelapp.model.Result
 import com.example.marvelapp.R
 import com.example.marvelapp.adapter.ListComicsAdapter
+import com.example.marvelapp.basic.Const
 import com.example.marvelapp.databinding.FragmentListSearchBinding
+import com.example.marvelapp.extension.gone
 import com.example.marvelapp.extension.hideKeyboard
+import com.example.marvelapp.extension.show
 import com.example.marvelapp.viewmodel.SearchViewModel
 import com.example.marvelapp.viewmodel.SearchViewModel.ViewState.*
 import dagger.hilt.android.AndroidEntryPoint
@@ -26,13 +28,16 @@ class SearchListFragment : Fragment() {
     private val viewModel: SearchViewModel by viewModels()
     private var _binding: FragmentListSearchBinding? = null
     private val binding get() = _binding!!
-    private val adapter = ListComicsAdapter(object : ListComicsAdapter.ComicsListener {
-        override fun onClickComics(result: Result?) {
+
+    private val adapter by lazy {
+        ListComicsAdapter {
             findNavController().navigate(
-                R.id.action_nav_search_to_detailsFragment, bundleOf("person_data" to result)
+                R.id.action_nav_search_to_detailsFragment, bundleOf(
+                    Const.RESULT_COMIC to it
+                )
             )
         }
-    })
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -51,25 +56,22 @@ class SearchListFragment : Fragment() {
         viewModel.observeResults.observe(viewLifecycleOwner, Observer {
 
             when (it) {
-
-                Loading -> binding.progressBar.visibility = View.VISIBLE
+                Loading -> binding.progressBar.show()
                 is Success -> {
-                    binding.listOfHeroesRV.visibility = View.VISIBLE
-
-                    binding.notFound.visibility = View.GONE
-                    binding.progressBar.visibility = View.GONE
+                    binding.listOfHeroesRV.show()
+                    binding.notFound.gone()
+                    binding.progressBar.gone()
                     adapter.submitList(it.results)
                 }
                 Error -> {
-                    binding.progressBar.visibility = View.GONE
-                    binding.notFound.visibility = View.GONE
-
+                    binding.progressBar.gone()
+                    binding.notFound.gone()
                     Timber.d("api")
                 }
                 NotFound -> {
-                    binding.listOfHeroesRV.visibility = View.GONE
-                    binding.progressBar.visibility = View.GONE
-                    binding.notFound.visibility = View.VISIBLE
+                    binding.listOfHeroesRV.gone()
+                    binding.progressBar.gone()
+                    binding.notFound.show()
                     Timber.d("not found")
                 }
             }

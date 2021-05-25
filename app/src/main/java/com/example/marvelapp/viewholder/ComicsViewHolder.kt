@@ -1,8 +1,8 @@
 package com.example.marvelapp.viewholder
 
+
 import androidx.recyclerview.widget.RecyclerView
 import com.example.marvelapp.model.Result
-import com.example.marvelapp.adapter.ListComicsAdapter
 import com.example.marvelapp.databinding.ItemComicsBinding
 import com.squareup.picasso.Picasso
 
@@ -11,7 +11,8 @@ class ComicsViewHolder(private val binding: ItemComicsBinding) :
     private var creators: String = ""
     private var description: String = ""
 
-    fun bind(result: Result, listener: ListComicsAdapter.ComicsListener?) {
+    fun bind(result: Result, listener: (Result) -> Unit) {
+
         with(binding) {
             titleComics.text = result.title
 
@@ -24,11 +25,10 @@ class ComicsViewHolder(private val binding: ItemComicsBinding) :
                 description += "${it.text}\n"
             }
             binding.descriptionComicsText.text = description
-
             val url =
                 "${result.thumbnail.path}.${result.thumbnail.extension}".replace("http", "https")
             Picasso.get().load(url).into(thumbNailComic)
-            root.setOnClickListener { listener?.onClickComics(result) }
+            root.setOnClickListener { listener.invoke(result) }
         }
     }
 }

@@ -15,3 +15,10 @@ fun Fragment.hideKeyboard() {
 
     inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
 }
+fun View.gone() {
+    visibility = View.GONE
+}
+
+fun View.show() {
+    visibility = View.VISIBLE
+}

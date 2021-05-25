@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.marvelapp.basic.Const
 import com.example.marvelapp.model.Result
 import com.example.marvelapp.databinding.DetailComicsFragmentBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -37,12 +38,15 @@ class DetailsComicsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        initView()
         BottomSheetBehavior.from(sheet_shape).apply {
-            peekHeight=600
+            peekHeight = 600
             this.state = BottomSheetBehavior.STATE_COLLAPSED
         }
-        result = arguments?.getParcelable("person_data") as Result?
-        _binding = DetailComicsFragmentBinding.bind(view)
+    }
+
+    private fun initView() {
+        result = arguments?.getParcelable(Const.RESULT_COMIC) as Result?
 
         comicBook.text = result?.title
 

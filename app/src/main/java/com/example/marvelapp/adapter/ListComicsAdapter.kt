@@ -8,8 +8,8 @@ import com.example.marvelapp.model.Result
 import com.example.marvelapp.databinding.ItemComicsBinding
 import com.example.marvelapp.viewholder.ComicsViewHolder
 
-class ListComicsAdapter(private val listener: ComicsListener) :
-    ListAdapter<Result, ComicsViewHolder>(DiffCallback) {
+class ListComicsAdapter(private val listener: (Result) -> Unit) :
+    ListAdapter<Result, ComicsViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ComicsViewHolder {
         val binding =
@@ -18,23 +18,17 @@ class ListComicsAdapter(private val listener: ComicsListener) :
     }
 
     override fun onBindViewHolder(holder: ComicsViewHolder, position: Int) {
-        val currentItem = getItem(position)
-        if (currentItem != null) {
-            holder.bind(currentItem, listener)
+        holder.bind(getItem(position), listener)
+    }
+
+    companion object {
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Result>() {
+
+            override fun areItemsTheSame(oldItem: Result, newItem: Result): Boolean =
+                oldItem == newItem
+
+            override fun areContentsTheSame(oldItem: Result, newItem: Result): Boolean =
+                oldItem == newItem
         }
     }
-
-    interface ComicsListener {
-        fun onClickComics(result: Result?)
-    }
 }
-
-private val DiffCallback: DiffUtil.ItemCallback<Result> =
-
-    object : DiffUtil.ItemCallback<Result>() {
-        override fun areItemsTheSame(oldItem: Result, newItem: Result): Boolean =
-            oldItem == newItem
-
-        override fun areContentsTheSame(oldItem: Result, newItem: Result): Boolean =
-            oldItem == newItem
-    }
