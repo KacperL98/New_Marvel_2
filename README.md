@@ -23,3 +23,8 @@ The project was created using [Marvel API](https://developer.marvel.com/).
 
 :white_check_mark:ViewModel
 
+
+First of all, I focused on the quality of the code. I divided the code into smaller parts and tried to keep the clean code rules.
+
+### Code and description
+
