@@ -30,7 +30,7 @@ I wanted to take care of details such as:
 
 * The function to hide the keyboard when the user is scrolling the list
 
-   ```Kotlin
+    ```Kotlin
 fun Fragment.hideKeyboard() {
     val inputMethodManager =
         requireContext().getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
