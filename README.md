@@ -42,18 +42,3 @@ fun Fragment.hideKeyboard() {
     inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
 }
 ```
-
-   ```Kotlin
-    private fun closeKeyboardAfterScroll() {
-        binding.listOfHeroesRV.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                if (dy > 20) {
-                    hideKeyboard()
-                }
-                super.onScrolled(recyclerView, dx, dy)
-            }
-        })
-    }
-```
-
-
