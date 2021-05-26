@@ -17,8 +17,6 @@ The project was created using [Marvel API](https://developer.marvel.com/).
 
 :white_check_mark:Kotlin Coroutines
 
-:white_check_mark:Dagger Hilt
-
 :white_check_mark:Hilt
 
 :white_check_mark:Architecture Components (LiveData, ViewModel)
