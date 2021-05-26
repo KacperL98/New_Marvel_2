@@ -42,9 +42,7 @@ I wanted to take care of details such as:
     inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
 ```
-
-
-    ```Kotlin
+  ```Kotlin
     private fun closeKeyboardAfterScroll() {
         binding.listOfHeroesRV.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
