@@ -13,5 +13,10 @@
     <color name="very_light_pink">#c4c4c4</color>
     <color name="black_up">#424242</color>
     <color name="black_title">#262424</color>
+    <color name="shade_color_text">#E1FFFFFF</color>
+    <color name="start_background_color">#00FFFFFF</color>
+    <color name="end_background_color">#A6A6A6</color>
+
+
 
 </resources>

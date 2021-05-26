@@ -88,7 +88,6 @@ class SearchListFragment : Fragment() {
                     adapter.submitList(it.results)
                 }
                 Error -> {
-
                     binding.progressBar.gone()
                     binding.notFound.gone()
                 }

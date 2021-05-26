@@ -45,8 +45,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout_search_view"
-    />
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout_search_view" />
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -64,9 +63,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:text="@string/not_found"
         android:textSize="24sp"
         android:visibility="gone"
-        android:text="@string/not_found"
         app:layout_constraintBottom_toBottomOf="@+id/listOfHeroesRV"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

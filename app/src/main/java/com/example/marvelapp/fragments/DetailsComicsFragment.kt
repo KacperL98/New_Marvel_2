@@ -8,8 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.marvelapp.basic.Const
-import com.example.marvelapp.model.Result
 import com.example.marvelapp.databinding.DetailComicsFragmentBinding
+import com.example.marvelapp.model.Result
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.squareup.picasso.Picasso
 import dagger.hilt.android.AndroidEntryPoint
