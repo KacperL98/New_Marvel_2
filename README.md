@@ -55,3 +55,11 @@ I wanted to take care of details such as:
         })
     }
 ```
+
+* After clicking on the text field, the bottom navigation bar does not appear above the keyboard. I added this line to the Android Manifest
+
+```Kotlin
+android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
+```
+
+
