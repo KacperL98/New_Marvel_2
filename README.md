@@ -81,4 +81,4 @@ bottom sheet behavior:
 
 ![ezgif com-gif-maker (7)](https://user-images.githubusercontent.com/75754448/119701809-0fb5c380-be55-11eb-8ac4-12d85af36e74.gif)
 
-Api returns comic book pictures of different sizes
+#### :warning:
