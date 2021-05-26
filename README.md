@@ -28,3 +28,23 @@ First of all, I focused on the quality of the code. I divided the code into smal
 
 ### Code and description
 
+I used Picasso to download photos. I changed http to https. Same as the previous Marvel app.
+
+   ```Kotlin
+       val url = "${result?.thumbnail?.path}.${result?.thumbnail?.extension}".replace(
+            "http", "https"
+        )
+        Picasso.get().load(url).into(binding.backgroundImageViewComic)
+```
+
+After clicking the button, we will go to the specific page with the comic.
+
+   ```Kotlin
+       binding.btnLink.setOnClickListener {
+            val website = result?.urls?.firstOrNull()
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse(website?.url)
+            startActivity(intent)
+        }
+```
+
