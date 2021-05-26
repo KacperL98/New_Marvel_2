@@ -23,7 +23,7 @@ The project was created using [Marvel API](https://developer.marvel.com/).
 
 :white_check_mark:Architecture Components (LiveData, ViewModel)
 
-#### :warning: API size images
+####  API size images :warning:
 
 APi returns images of different sizes, so in the end I decided to manually set the height and width of the images on the first screen. 
 I also checked the views on different emulators and it looked ok.
