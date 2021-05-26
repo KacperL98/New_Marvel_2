@@ -23,6 +23,11 @@ The project was created using [Marvel API](https://developer.marvel.com/).
 
 :white_check_mark:Architecture Components (LiveData, ViewModel)
 
+#### :warning: API size images
+
+APi returns images of different sizes, so in the end I decided to manually set the height and width of the images on the first screen. 
+I also checked the views on different emulators and it looked ok.
+I know this is not entirely correct. It didn't look good with match_parent and wrap_content. :hand:
 
 First of all, I focused on the quality of the code. I divided the code into smaller parts and tried to keep the clean code rules.
 
@@ -81,4 +86,3 @@ bottom sheet behavior:
 
 ![ezgif com-gif-maker (7)](https://user-images.githubusercontent.com/75754448/119701809-0fb5c380-be55-11eb-8ac4-12d85af36e74.gif)
 
-#### :warning:
