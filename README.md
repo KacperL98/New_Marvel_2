@@ -21,6 +21,8 @@ The project was created using [Marvel API](https://developer.marvel.com/).
 
 :white_check_mark:Hilt
 
+:white_check_mark:ViewModel
+
 
 ### Views
 
