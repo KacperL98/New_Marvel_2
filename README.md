@@ -62,4 +62,16 @@ I wanted to take care of details such as:
 android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
 ```
 
+* The description of comic books was often very long, so I limited its display on the home screen to 5 lines, and the creators to 1 line. 
+In the comic details, I added a ScrollView and an extendable screen. Above the button, the starting text is transparent. 
+bottom sheet behavior:
+
+```Kotlin
+    private fun extendableView() {
+        BottomSheetBehavior.from(binding.sheetShape).apply {
+            peekHeight = 600
+            this.state = BottomSheetBehavior.STATE_COLLAPSED
+        }
+    }
+```
 
