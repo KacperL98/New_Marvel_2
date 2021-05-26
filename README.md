@@ -7,7 +7,8 @@ The project was created using [Marvel API](https://developer.marvel.com/).
 
 ### Views
 
-![190551784_4035818889841693_3230152785519819640_n](https://user-images.githubusercontent.com/75754448/119679977-18040380-be41-11eb-926b-f4079fa4a5fe.jpg)
+![190600015_298318688612912_3644436831571555165_n](https://user-images.githubusercontent.com/75754448/119680426-77621380-be41-11eb-844a-2fccf071cdb1.jpg)
+
 
 
 
