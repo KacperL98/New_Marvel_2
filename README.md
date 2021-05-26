@@ -76,7 +76,8 @@ bottom sheet behavior:
 ```
 ### GIF's 💡
 <p align="center">
-![ezgif com-gif-maker (5)](https://user-images.githubusercontent.com/75754448/119700970-27407c80-be54-11eb-8e87-7ca658b58486.gif)
+<img src=![ezgif com-gif-maker (5)](https://user-images.githubusercontent.com/75754448/119700970-27407c80-be54-11eb-8e87-7ca658b58486.gif)>
+</p>
 ![ezgif com-gif-maker (6)](https://user-images.githubusercontent.com/75754448/119701332-843c3280-be54-11eb-8734-8f36b3162f6e.gif)
 ![ezgif com-gif-maker (7)](https://user-images.githubusercontent.com/75754448/119701809-0fb5c380-be55-11eb-8ac4-12d85af36e74.gif)
 
