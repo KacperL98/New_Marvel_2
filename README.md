@@ -15,36 +15,45 @@ The project was created using [Marvel API](https://developer.marvel.com/).
 
 :white_check_mark:ViewBinding
 
-:white_check_mark:Kotlin coroutines
+:white_check_mark:Kotlin Coroutines
 
 :white_check_mark:Dagger Hilt
 
 :white_check_mark:Hilt
 
-:white_check_mark:ViewModel
+:white_check_mark:Architecture Components (LiveData, ViewModel)
 
 
 First of all, I focused on the quality of the code. I divided the code into smaller parts and tried to keep the clean code rules.
 
-### Code and description
+I wanted to take care of details such as:
 
-I used Picasso to download photos. I changed http to https. Same as the previous Marvel app.
-
-   ```Kotlin
-       val url = "${result?.thumbnail?.path}.${result?.thumbnail?.extension}".replace(
-            "http", "https"
-        )
-        Picasso.get().load(url).into(binding.backgroundImageViewComic)
-```
-
-After clicking the button, we will go to the specific page with the comic.
+* The function to hide the keyboard when the user is scrolling the list
 
    ```Kotlin
-       binding.btnLink.setOnClickListener {
-            val website = result?.urls?.firstOrNull()
-            val intent = Intent(Intent.ACTION_VIEW)
-            intent.data = Uri.parse(website?.url)
-            startActivity(intent)
-        }
+fun Fragment.hideKeyboard() {
+    val inputMethodManager =
+        requireContext().getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+    var view = requireActivity().currentFocus
+    if (view == null) {
+        view = View(requireContext())
+    }
+
+    inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+}
 ```
+
+   ```Kotlin
+    private fun closeKeyboardAfterScroll() {
+        binding.listOfHeroesRV.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                if (dy > 20) {
+                    hideKeyboard()
+                }
+                super.onScrolled(recyclerView, dx, dy)
+            }
+        })
+    }
+```
+
 
