@@ -76,5 +76,5 @@ bottom sheet behavior:
 ```
 ### GIF's 💡
 
-![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/75754448/119697757-d54a2780-be50-11eb-93c3-406503e4f4a1.gif)
+![ezgif com-gif-maker (5)](https://user-images.githubusercontent.com/75754448/119700970-27407c80-be54-11eb-8e87-7ca658b58486.gif)
 
