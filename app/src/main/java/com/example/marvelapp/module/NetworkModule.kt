@@ -1,7 +1,6 @@
 package com.example.marvelapp.module
 
 import com.example.marvelapp.api.ComicApi
-import com.example.marvelapp.api.ComicService
 import com.example.marvelapp.api.SearchComicApi
 import com.example.marvelapp.basic.Const.Companion.BASE_URL
 import com.google.gson.Gson
@@ -47,11 +46,6 @@ class NetworkModule {
     @Provides
     internal fun searchComicApi(retrofit: Retrofit): SearchComicApi {
         return retrofit.create(SearchComicApi::class.java)
-    }
-
-    @Provides
-    internal fun charactersComicsService(retrofit: Retrofit): ComicService {
-        return retrofit.create(ComicService::class.java)
     }
 
 }
